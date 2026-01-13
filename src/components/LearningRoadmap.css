@@ -1,0 +1,329 @@
+.roadmap-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.roadmap-header {
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.roadmap-header h2 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.duration-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--primary-gradient);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    margin-left: var(--spacing-xs);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: var(--spacing-lg);
+    position: relative;
+}
+
+.timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.marker-dot {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-glow);
+    z-index: 2;
+    animation: pulse 2s infinite;
+}
+
+.marker-line {
+    flex: 1;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary-color) 0%, transparent 100%);
+    margin-top: var(--spacing-sm);
+}
+
+.timeline-item:last-child .marker-line {
+    display: none;
+}
+
+.timeline-content {
+    padding: var(--spacing-lg);
+    animation: slideInRight 0.6s ease;
+}
+
+/* Phase */
+.phase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.phase-header h3 {
+    font-size: 1.75rem;
+    margin: 0;
+}
+
+.phase-duration {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+}
+
+.phase-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Steps */
+.phase-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.step-card {
+    padding: var(--spacing-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary-color);
+    transition: all var(--transition-normal);
+}
+
+.step-card:hover {
+    background: var(--bg-card-hover);
+    transform: translateX(4px);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.step-number {
+    padding: 0.375rem 0.875rem;
+    background: var(--primary-gradient);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.step-header h4 {
+    margin: 0;
+    font-size: 1.125rem;
+}
+
+.step-description {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.step-meta {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-sm);
+}
+
+.step-duration,
+.step-deliverable {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.step-resources {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+}
+
+.step-resources strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.step-resources ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.step-resources li {
+    padding: 0.25rem 0;
+    color: var(--text-secondary);
+}
+
+.step-resources li::before {
+    content: '→';
+    margin-right: var(--spacing-xs);
+    color: var(--primary-color);
+}
+
+/* Milestone */
+.phase-milestone {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.milestone-icon {
+    font-size: 1.5rem;
+}
+
+.milestone-text {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Resources Section */
+.resources-section {
+    padding: var(--spacing-lg);
+}
+
+.resources-section h3 {
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.resource-card {
+    padding: var(--spacing-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+}
+
+.resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.resource-type {
+    display: inline-block;
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.resource-card h4 {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.125rem;
+}
+
+.resource-platform {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.resource-duration {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline-item {
+        grid-template-columns: 60px 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .marker-dot {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .phase-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   TEXT ALIGNMENT FIX - LEARNING ROADMAP
+   ============================================ */
+
+/* Ensure all text displays horizontally */
+.roadmap-container,
+.roadmap-container * {
+    writing-mode: horizontal-tb !important;
+    direction: ltr !important;
+}
+
+.roadmap-header h2,
+.timeline-content h3,
+.phase-header h3,
+.step-card h4,
+.resource-card h4 {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.phase-duration,
+.step-duration,
+.step-deliverable {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+}
+
+.timeline-content,
+.phase-steps,
+.step-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+}

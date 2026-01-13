@@ -1,0 +1,232 @@
+.skill-gap-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.metric-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+}
+
+.metric-icon {
+    font-size: 2.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Chart Container */
+.chart-container {
+    padding: var(--spacing-lg);
+}
+
+.chart-container h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.radar-chart {
+    height: 400px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Industry Comparison */
+.industry-comparison {
+    padding: var(--spacing-lg);
+}
+
+.benchmark-info {
+    margin-bottom: var(--spacing-lg);
+}
+
+.current-level {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.level-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.level-badge {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+.benchmark-message {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Benchmark Progress Bar */
+.benchmark-progress {
+    margin: var(--spacing-lg) 0;
+}
+
+.benchmark-bar {
+    position: relative;
+    padding-top: 2rem;
+}
+
+.benchmark-markers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2rem;
+}
+
+.marker {
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+.marker::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 10px;
+    background: var(--border-color);
+}
+
+.marker-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.progress-label {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+/* Next Milestone */
+.next-milestone {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.1) 0%, rgba(79, 172, 254, 0.1) 100%);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--success-color);
+}
+
+.next-milestone h4 {
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.next-milestone p {
+    color: var(--text-secondary);
+}
+
+/* Skills Breakdown */
+.skills-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.skill-category h3 {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.25rem;
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid transparent;
+    transition: all var(--transition-normal);
+}
+
+.skill-item:hover {
+    transform: translateX(4px);
+    background: var(--bg-card-hover);
+}
+
+.skill-item.critical {
+    border-left-color: #f5576c;
+}
+
+.skill-item.important {
+    border-left-color: #fee140;
+}
+
+.skill-item.nice {
+    border-left-color: #00f2fe;
+}
+
+.skill-item.possessed {
+    border-left-color: #4facfe;
+}
+
+.skill-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.skill-weight {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.skill-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .radar-chart {
+        height: 300px;
+    }
+
+    .skills-breakdown {
+        grid-template-columns: 1fr;
+    }
+}

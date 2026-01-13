@@ -1,0 +1,1440 @@
+{
+    "location_multipliers": {
+        "Bangalore": 0.25,
+        "Mumbai": 0.23,
+        "Delhi/NCR": 0.22,
+        "Hyderabad": 0.21,
+        "Pune": 0.20,
+        "Chennai": 0.19,
+        "Kolkata": 0.18,
+        "Remote": 0.30,
+        "Others": 0.15
+    },
+    "career_paths": {
+        "Full Stack Developer": {
+            "description": "Build end-to-end web applications with both frontend and backend expertise",
+            "required_skills": {
+                "technical": [
+                    "JavaScript",
+                    "React",
+                    "Node.js",
+                    "Python",
+                    "SQL",
+                    "REST APIs",
+                    "Git",
+                    "HTML",
+                    "CSS"
+                ],
+                "soft": [
+                    "Problem Solving",
+                    "Communication",
+                    "Teamwork",
+                    "Time Management"
+                ]
+            },
+            "skill_weights": {
+                "JavaScript": 10,
+                "React": 9,
+                "Node.js": 8,
+                "Python": 8,
+                "SQL": 7,
+                "REST APIs": 7,
+                "Git": 6,
+                "HTML": 5,
+                "CSS": 5
+            },
+            "job_roles": [
+                "Full Stack Developer",
+                "Software Engineer",
+                "Web Developer",
+                "Application Developer"
+            ],
+            "companies": [
+                "Google",
+                "Microsoft",
+                "Amazon",
+                "Meta",
+                "Netflix",
+                "Spotify",
+                "Airbnb",
+                "Uber"
+            ],
+            "salary_range": "$80,000 - $150,000",
+            "growth_potential": "High",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "The Complete Web Developer Bootcamp",
+                    "platform": "Udemy",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "AWS Certified Developer",
+                    "platform": "Amazon Web Services",
+                    "duration": "2 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Build a Full Stack E-commerce Platform",
+                    "duration": "1 month"
+                }
+            ]
+        },
+        "Data Scientist": {
+            "description": "Extract insights from data using statistical analysis and machine learning",
+            "required_skills": {
+                "technical": [
+                    "Python",
+                    "Machine Learning",
+                    "Statistics",
+                    "SQL",
+                    "Data Visualization",
+                    "Pandas",
+                    "NumPy",
+                    "Scikit-learn",
+                    "TensorFlow"
+                ],
+                "soft": [
+                    "Analytical Thinking",
+                    "Communication",
+                    "Problem Solving",
+                    "Attention to Detail"
+                ]
+            },
+            "skill_weights": {
+                "Python": 10,
+                "Machine Learning": 10,
+                "Statistics": 9,
+                "SQL": 8,
+                "Data Visualization": 7,
+                "Pandas": 8,
+                "NumPy": 7,
+                "Scikit-learn": 8,
+                "TensorFlow": 7
+            },
+            "job_roles": [
+                "Data Scientist",
+                "Machine Learning Engineer",
+                "AI Researcher",
+                "Data Analyst"
+            ],
+            "companies": [
+                "Google",
+                "Meta",
+                "Amazon",
+                "Microsoft",
+                "IBM",
+                "Netflix",
+                "Tesla",
+                "OpenAI"
+            ],
+            "salary_range": "$90,000 - $170,000",
+            "growth_potential": "Very High",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "Machine Learning Specialization",
+                    "platform": "Coursera (Andrew Ng)",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "TensorFlow Developer Certificate",
+                    "platform": "Google",
+                    "duration": "2 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Build a Predictive Analytics Dashboard",
+                    "duration": "1 month"
+                }
+            ]
+        },
+        "Frontend Developer": {
+            "description": "Create beautiful, responsive user interfaces for web applications",
+            "required_skills": {
+                "technical": [
+                    "JavaScript",
+                    "React",
+                    "HTML",
+                    "CSS",
+                    "TypeScript",
+                    "Responsive Design",
+                    "Git",
+                    "Webpack"
+                ],
+                "soft": [
+                    "Creativity",
+                    "Attention to Detail",
+                    "Communication",
+                    "Problem Solving"
+                ]
+            },
+            "skill_weights": {
+                "JavaScript": 10,
+                "React": 10,
+                "HTML": 8,
+                "CSS": 8,
+                "TypeScript": 7,
+                "Responsive Design": 8,
+                "Git": 6,
+                "Webpack": 5
+            },
+            "job_roles": [
+                "Frontend Developer",
+                "UI Developer",
+                "React Developer",
+                "Web Designer"
+            ],
+            "companies": [
+                "Airbnb",
+                "Spotify",
+                "Netflix",
+                "Adobe",
+                "Figma",
+                "Shopify",
+                "Stripe",
+                "Vercel"
+            ],
+            "salary_range": "$70,000 - $130,000",
+            "growth_potential": "High",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "Advanced React and TypeScript",
+                    "platform": "Frontend Masters",
+                    "duration": "2 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "Meta Frontend Developer Certificate",
+                    "platform": "Coursera",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Build a Modern Portfolio Website",
+                    "duration": "2 weeks"
+                }
+            ]
+        },
+        "Backend Developer": {
+            "description": "Build robust server-side applications and APIs",
+            "required_skills": {
+                "technical": [
+                    "Python",
+                    "Node.js",
+                    "SQL",
+                    "REST APIs",
+                    "Docker",
+                    "AWS",
+                    "Git",
+                    "MongoDB"
+                ],
+                "soft": [
+                    "Problem Solving",
+                    "Logical Thinking",
+                    "Communication",
+                    "Teamwork"
+                ]
+            },
+            "skill_weights": {
+                "Python": 9,
+                "Node.js": 9,
+                "SQL": 9,
+                "REST APIs": 10,
+                "Docker": 7,
+                "AWS": 8,
+                "Git": 6,
+                "MongoDB": 7
+            },
+            "job_roles": [
+                "Backend Developer",
+                "API Developer",
+                "DevOps Engineer",
+                "Cloud Engineer"
+            ],
+            "companies": [
+                "Amazon",
+                "Google",
+                "Microsoft",
+                "Uber",
+                "Twitter",
+                "LinkedIn",
+                "Salesforce",
+                "Oracle"
+            ],
+            "salary_range": "$75,000 - $140,000",
+            "growth_potential": "High",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "Node.js Microservices Architecture",
+                    "platform": "Udemy",
+                    "duration": "2 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "AWS Solutions Architect",
+                    "platform": "Amazon Web Services",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Build a Scalable REST API",
+                    "duration": "1 month"
+                }
+            ]
+        },
+        "Mobile App Developer": {
+            "description": "Create native and cross-platform mobile applications",
+            "required_skills": {
+                "technical": [
+                    "React Native",
+                    "JavaScript",
+                    "Mobile UI/UX",
+                    "REST APIs",
+                    "Git",
+                    "Firebase",
+                    "iOS",
+                    "Android"
+                ],
+                "soft": [
+                    "Creativity",
+                    "Problem Solving",
+                    "Attention to Detail",
+                    "User Empathy"
+                ]
+            },
+            "skill_weights": {
+                "React Native": 10,
+                "JavaScript": 9,
+                "Mobile UI/UX": 8,
+                "REST APIs": 7,
+                "Git": 6,
+                "Firebase": 7,
+                "iOS": 6,
+                "Android": 6
+            },
+            "job_roles": [
+                "Mobile App Developer",
+                "iOS Developer",
+                "Android Developer",
+                "React Native Developer"
+            ],
+            "companies": [
+                "Apple",
+                "Google",
+                "Meta",
+                "Uber",
+                "Airbnb",
+                "Instagram",
+                "Snapchat",
+                "TikTok"
+            ],
+            "salary_range": "$75,000 - $145,000",
+            "growth_potential": "High",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "React Native - The Practical Guide",
+                    "platform": "Udemy",
+                    "duration": "2 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "Google Associate Android Developer",
+                    "platform": "Google",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Build a Social Media App",
+                    "duration": "1.5 months"
+                }
+            ]
+        },
+        "DevOps Engineer": {
+            "description": "Automate and optimize software development and deployment processes",
+            "required_skills": {
+                "technical": [
+                    "Docker",
+                    "Kubernetes",
+                    "AWS",
+                    "CI/CD",
+                    "Linux",
+                    "Python",
+                    "Git",
+                    "Terraform"
+                ],
+                "soft": [
+                    "Problem Solving",
+                    "Communication",
+                    "Automation Mindset",
+                    "Collaboration"
+                ]
+            },
+            "skill_weights": {
+                "Docker": 10,
+                "Kubernetes": 9,
+                "AWS": 10,
+                "CI/CD": 9,
+                "Linux": 8,
+                "Python": 7,
+                "Git": 7,
+                "Terraform": 8
+            },
+            "job_roles": [
+                "DevOps Engineer",
+                "Site Reliability Engineer",
+                "Cloud Engineer",
+                "Infrastructure Engineer"
+            ],
+            "companies": [
+                "Amazon",
+                "Google",
+                "Microsoft",
+                "Netflix",
+                "Uber",
+                "Airbnb",
+                "Spotify",
+                "HashiCorp"
+            ],
+            "salary_range": "$85,000 - $160,000",
+            "growth_potential": "Very High",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "Docker and Kubernetes: The Complete Guide",
+                    "platform": "Udemy",
+                    "duration": "2 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "AWS Certified DevOps Engineer",
+                    "platform": "Amazon Web Services",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Build a CI/CD Pipeline",
+                    "duration": "1 month"
+                }
+            ]
+        },
+        "UI/UX Designer": {
+            "description": "Design intuitive and beautiful user experiences for digital products",
+            "required_skills": {
+                "technical": [
+                    "Figma",
+                    "Adobe XD",
+                    "User Research",
+                    "Wireframing",
+                    "Prototyping",
+                    "HTML",
+                    "CSS",
+                    "Design Systems"
+                ],
+                "soft": [
+                    "Creativity",
+                    "Empathy",
+                    "Communication",
+                    "Attention to Detail",
+                    "Problem Solving"
+                ]
+            },
+            "skill_weights": {
+                "Figma": 10,
+                "Adobe XD": 8,
+                "User Research": 9,
+                "Wireframing": 9,
+                "Prototyping": 9,
+                "HTML": 6,
+                "CSS": 6,
+                "Design Systems": 8
+            },
+            "job_roles": [
+                "UI/UX Designer",
+                "Product Designer",
+                "Interaction Designer",
+                "Visual Designer"
+            ],
+            "companies": [
+                "Apple",
+                "Google",
+                "Meta",
+                "Adobe",
+                "Figma",
+                "Airbnb",
+                "Spotify",
+                "Netflix"
+            ],
+            "salary_range": "$65,000 - $125,000",
+            "growth_potential": "High",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "UI/UX Design Specialization",
+                    "platform": "Coursera (CalArts)",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "Google UX Design Certificate",
+                    "platform": "Coursera",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Design a Complete Mobile App",
+                    "duration": "1 month"
+                }
+            ]
+        },
+        "Cybersecurity Analyst": {
+            "description": "Protect systems and networks from security threats and vulnerabilities",
+            "required_skills": {
+                "technical": [
+                    "Network Security",
+                    "Penetration Testing",
+                    "Linux",
+                    "Python",
+                    "Cryptography",
+                    "Firewalls",
+                    "SIEM",
+                    "Incident Response"
+                ],
+                "soft": [
+                    "Analytical Thinking",
+                    "Attention to Detail",
+                    "Problem Solving",
+                    "Communication"
+                ]
+            },
+            "skill_weights": {
+                "Network Security": 10,
+                "Penetration Testing": 9,
+                "Linux": 8,
+                "Python": 7,
+                "Cryptography": 8,
+                "Firewalls": 7,
+                "SIEM": 8,
+                "Incident Response": 9
+            },
+            "job_roles": [
+                "Cybersecurity Analyst",
+                "Security Engineer",
+                "Penetration Tester",
+                "Security Consultant"
+            ],
+            "companies": [
+                "Cisco",
+                "Palo Alto Networks",
+                "CrowdStrike",
+                "Microsoft",
+                "Google",
+                "Amazon",
+                "IBM",
+                "Mandiant"
+            ],
+            "salary_range": "$80,000 - $150,000",
+            "growth_potential": "Very High",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "Cybersecurity Specialization",
+                    "platform": "Coursera (University of Maryland)",
+                    "duration": "4 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "CompTIA Security+",
+                    "platform": "CompTIA",
+                    "duration": "2 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Build a Network Security Lab",
+                    "duration": "1 month"
+                }
+            ]
+        },
+        "Product Manager": {
+            "description": "Drive product vision, strategy, and execution to build products customers love",
+            "required_skills": {
+                "technical": [
+                    "Product Strategy",
+                    "Agile Methodologies",
+                    "Data Analysis",
+                    "SQL",
+                    "A/B Testing",
+                    "Roadmapping",
+                    "Jira",
+                    "User Research"
+                ],
+                "soft": [
+                    "Leadership",
+                    "Communication",
+                    "Empathy",
+                    "Strategic Thinking",
+                    "Prioritization"
+                ]
+            },
+            "skill_weights": {
+                "Product Strategy": 10,
+                "Agile Methodologies": 9,
+                "Data Analysis": 8,
+                "SQL": 7,
+                "A/B Testing": 7,
+                "Roadmapping": 9,
+                "Jira": 8,
+                "User Research": 9
+            },
+            "job_roles": [
+                "Product Manager",
+                "Product Owner",
+                "Technical Product Manager",
+                "Group Product Manager"
+            ],
+            "companies": [
+                "Google",
+                "Meta",
+                "Slack",
+                "Atlassian",
+                "Salesforce",
+                "Uber",
+                "Airbnb",
+                "Microsoft"
+            ],
+            "salary_range": "$90,000 - $160,000",
+            "growth_potential": "Very High",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "Become a Product Manager",
+                    "platform": "Udemy",
+                    "duration": "2 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "Product School Product Manager Certificate",
+                    "platform": "Product School",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Create a Product Roadmap Case Study",
+                    "duration": "2 weeks"
+                }
+            ]
+        },
+        "Blockchain Developer": {
+            "description": "Build decentralized applications (dApps) and smart contracts on blockchain platforms",
+            "required_skills": {
+                "technical": [
+                    "Solidity",
+                    "Ethereum",
+                    "Smart Contracts",
+                    "Web3.js",
+                    "Cryptography",
+                    "Rust",
+                    "Go",
+                    "Distributed Systems"
+                ],
+                "soft": [
+                    "Problem Solving",
+                    "Attention to Detail",
+                    "Security Mindset",
+                    "Innovation"
+                ]
+            },
+            "skill_weights": {
+                "Solidity": 10,
+                "Ethereum": 9,
+                "Smart Contracts": 10,
+                "Web3.js": 8,
+                "Cryptography": 9,
+                "Rust": 8,
+                "Go": 7,
+                "Distributed Systems": 8
+            },
+            "job_roles": [
+                "Blockchain Developer",
+                "Smart Contract Engineer",
+                "Web3 Developer",
+                "Protocol Engineer"
+            ],
+            "companies": [
+                "Coinbase",
+                "Binance",
+                "ConsenSys",
+                "Chainlink",
+                "OpenSea",
+                "Polygon",
+                "Solana",
+                "Ripple"
+            ],
+            "salary_range": "$100,000 - $180,000",
+            "growth_potential": "High",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "Ethereum and Solidity: The Complete Developer's Guide",
+                    "platform": "Udemy",
+                    "duration": "2 months"
+                },
+                {
+                    "type": "course",
+                    "name": "CryptoZombies",
+                    "platform": "Interactive Code",
+                    "duration": "2 weeks"
+                },
+                {
+                    "type": "project",
+                    "name": "Build a Decentralized Exchange (DEX)",
+                    "duration": "1 month"
+                }
+            ]
+        },
+        "Cloud Architect": {
+            "description": "Design and manage complex cloud computing strategies and infrastructure",
+            "required_skills": {
+                "technical": [
+                    "AWS",
+                    "Azure",
+                    "Google Cloud",
+                    "System Design",
+                    "Network Security",
+                    "Cost Management",
+                    "Terraform",
+                    "Microservices"
+                ],
+                "soft": [
+                    "Strategic Planning",
+                    "Communication",
+                    "Leadership",
+                    "Decision Making"
+                ]
+            },
+            "skill_weights": {
+                "AWS": 10,
+                "Azure": 9,
+                "Google Cloud": 9,
+                "System Design": 10,
+                "Network Security": 9,
+                "Cost Management": 8,
+                "Terraform": 8,
+                "Microservices": 9
+            },
+            "job_roles": [
+                "Cloud Architect",
+                "Solutions Architect",
+                "Enterprise Architect",
+                "Cloud Consultant"
+            ],
+            "companies": [
+                "Amazon Web Services",
+                "Microsoft",
+                "Google",
+                "IBM",
+                "Oracle",
+                "Deloitte",
+                "Accenture",
+                "Capgemini"
+            ],
+            "salary_range": "$120,000 - $200,000",
+            "growth_potential": "Very High",
+            "learning_resources": [
+                {
+                    "type": "certification",
+                    "name": "AWS Certified Solutions Architect - Professional",
+                    "platform": "AWS",
+                    "duration": "3-6 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "Microsoft Certified: Azure Solutions Architect Expert",
+                    "platform": "Microsoft",
+                    "duration": "3-6 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Design a Multi-Region Failover Architecture",
+                    "duration": "1 month"
+                }
+            ]
+        },
+        "Game Developer": {
+            "description": "Design and build interactive video games for various platforms",
+            "required_skills": {
+                "technical": [
+                    "C++",
+                    "C#",
+                    "Unity",
+                    "Unreal Engine",
+                    "3D Mathematics",
+                    "Physics Programming",
+                    "Graphics Programming",
+                    "Shader coding"
+                ],
+                "soft": [
+                    "Creativity",
+                    "Teamwork",
+                    "Problem Solving",
+                    "Passion for Gaming"
+                ]
+            },
+            "skill_weights": {
+                "C++": 9,
+                "C#": 9,
+                "Unity": 10,
+                "Unreal Engine": 10,
+                "3D Mathematics": 8,
+                "Physics Programming": 8,
+                "Graphics Programming": 9,
+                "Shader coding": 7
+            },
+            "job_roles": [
+                "Game Developer",
+                "Gameplay Programmer",
+                "Graphics Engineer",
+                "Unity Developer"
+            ],
+            "companies": [
+                "Electronic Arts (EA)",
+                "Ubisoft",
+                "Activision Blizzard",
+                "Rockstar Games",
+                "Epic Games",
+                "Nintendo",
+                "Sony PlayStation",
+                "Riot Games"
+            ],
+            "salary_range": "$70,000 - $140,000",
+            "growth_potential": "Medium",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "Complete C# Unity Game Developer",
+                    "platform": "Udemy",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "course",
+                    "name": "Unreal Engine C++ Developer",
+                    "platform": "Udemy",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Create a 3D Platformer Game",
+                    "duration": "2 months"
+                }
+            ]
+        },
+        "Digital Marketing Manager": {
+            "description": "Plan and execute digital marketing campaigns to drive growth and brand awareness",
+            "required_skills": {
+                "technical": [
+                    "SEO",
+                    "SEM",
+                    "Google Analytics",
+                    "Content Strategy",
+                    "Social Media Marketing",
+                    "Email Marketing",
+                    "CRM Tools",
+                    "Data Analysis"
+                ],
+                "soft": [
+                    "Creativity",
+                    "Communication",
+                    "Analytical Thinking",
+                    "Adaptability"
+                ]
+            },
+            "skill_weights": {
+                "SEO": 10,
+                "SEM": 9,
+                "Google Analytics": 10,
+                "Content Strategy": 9,
+                "Social Media Marketing": 8,
+                "Email Marketing": 7,
+                "CRM Tools": 8,
+                "Data Analysis": 9
+            },
+            "job_roles": [
+                "Digital Marketing Manager",
+                "SEO Specialist",
+                "Content Marketing Manager",
+                "Growth Marketer"
+            ],
+            "companies": [
+                "HubSpot",
+                "Google",
+                "Meta",
+                "Salesforce",
+                "Adobe",
+                "Nike",
+                "Coca-Cola",
+                "Unilever"
+            ],
+            "salary_range": "$60,000 - $120,000",
+            "growth_potential": "High",
+            "learning_resources": [
+                {
+                    "type": "certification",
+                    "name": "Google Digital Garage: Fundamentals of Digital Marketing",
+                    "platform": "Google",
+                    "duration": "1 week"
+                },
+                {
+                    "type": "course",
+                    "name": "Digital Marketing Specialization",
+                    "platform": "Coursera (University of Illinois)",
+                    "duration": "4 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Run a Live Ad Campaign (Small Budget)",
+                    "duration": "2 weeks"
+                }
+            ]
+        },
+        "Database Administrator": {
+            "description": "Ensure the performance, integrity, and security of databases",
+            "required_skills": {
+                "technical": [
+                    "SQL",
+                    "Oracle",
+                    "PostgreSQL",
+                    "MySQL",
+                    "Performance Tuning",
+                    "Backup & Recovery",
+                    "Data Modeling",
+                    "Shell Scripting"
+                ],
+                "soft": [
+                    "Problem Solving",
+                    "Attention to Detail",
+                    "Patience",
+                    "Communication"
+                ]
+            },
+            "skill_weights": {
+                "SQL": 10,
+                "Oracle": 9,
+                "PostgreSQL": 9,
+                "MySQL": 9,
+                "Performance Tuning": 10,
+                "Backup & Recovery": 10,
+                "Data Modeling": 8,
+                "Shell Scripting": 7
+            },
+            "job_roles": [
+                "Database Administrator",
+                "Database Engineer",
+                "Data Architect",
+                "SQL Developer"
+            ],
+            "companies": [
+                "Oracle",
+                "IBM",
+                "Microsoft",
+                "JPMorgan Chase",
+                "Bank of America",
+                "UnitedHealth Group",
+                "AT&T",
+                "Verizon"
+            ],
+            "salary_range": "$80,000 - $140,000",
+            "growth_potential": "Medium",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "The Complete SQL Bootcamp",
+                    "platform": "Udemy",
+                    "duration": "1 month"
+                },
+                {
+                    "type": "certification",
+                    "name": "Oracle Database Administration 2019 Certified Professional",
+                    "platform": "Oracle",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Design a Relational Database Schema",
+                    "duration": "2 weeks"
+                }
+            ]
+        },
+        "Network Engineer": {
+            "description": "Design, implement, and manage computer networks",
+            "required_skills": {
+                "technical": [
+                    "Cisco IOS",
+                    "Routing Protocols (OSPF, BGP)",
+                    "Switching",
+                    "Firewalls",
+                    "TCP/IP",
+                    "VPN",
+                    "Wireshark",
+                    "Network Security"
+                ],
+                "soft": [
+                    "Problem Solving",
+                    "Analytical Thinking",
+                    "Teamwork",
+                    "Communication"
+                ]
+            },
+            "skill_weights": {
+                "Cisco IOS": 10,
+                "Routing Protocols (OSPF, BGP)": 10,
+                "Switching": 9,
+                "Firewalls": 9,
+                "TCP/IP": 10,
+                "VPN": 8,
+                "Wireshark": 8,
+                "Network Security": 9
+            },
+            "job_roles": [
+                "Network Engineer",
+                "Network Administrator",
+                "Network Architect",
+                "NOC Engineer"
+            ],
+            "companies": [
+                "Cisco",
+                "Juniper Networks",
+                "Verizon",
+                "AT&T",
+                "T-Mobile",
+                "Comcast",
+                "Google Fiber",
+                "Arista Networks"
+            ],
+            "salary_range": "$75,000 - $130,000",
+            "growth_potential": "Medium",
+            "learning_resources": [
+                {
+                    "type": "certification",
+                    "name": "Cisco Certified Network Associate (CCNA)",
+                    "platform": "Cisco",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "Cisco Certified Network Professional (CCNP)",
+                    "platform": "Cisco",
+                    "duration": "4-6 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Configure a Small Office Network in Packet Tracer",
+                    "duration": "1 week"
+                }
+            ]
+        },
+        "QA Automation Engineer": {
+            "description": "Design and execute automated tests to ensure software quality",
+            "required_skills": {
+                "technical": [
+                    "Selenium",
+                    "Python",
+                    "Java",
+                    "Jenkins",
+                    "CI/CD",
+                    "API Testing",
+                    "Git",
+                    "Jira"
+                ],
+                "soft": [
+                    "Attention to Detail",
+                    "Problem Solving",
+                    "Communication",
+                    "Collaboration"
+                ]
+            },
+            "skill_weights": {
+                "Selenium": 10,
+                "Python": 8,
+                "Java": 8,
+                "Jenkins": 8,
+                "CI/CD": 9,
+                "API Testing": 9,
+                "Git": 7,
+                "Jira": 7
+            },
+            "job_roles": [
+                "QA Engineer",
+                "Test Automation Engineer",
+                "SDET (Software Development Engineer in Test)",
+                "Quality Analyst"
+            ],
+            "companies": [
+                "Infosys",
+                "TCS",
+                "Cognizant",
+                "Wipro",
+                "Accenture",
+                "Capgemini",
+                "Microsoft",
+                "Amazon"
+            ],
+            "salary_range": "$70,000 - $130,000",
+            "growth_potential": "High",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "Selenium WebDriver with Java",
+                    "platform": "Udemy",
+                    "duration": "2 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "ISTQB Certified Tester",
+                    "platform": "ISTQB",
+                    "duration": "1.5 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Build an Automated Test Suite for a Website",
+                    "duration": "3 weeks"
+                }
+            ]
+        },
+        "Digital Marketing Manager": {
+            "description": "Plan and execute digital marketing campaigns to drive growth and brand awareness",
+            "required_skills": {
+                "technical": [
+                    "SEO",
+                    "SEM",
+                    "Google Analytics",
+                    "Content Strategy",
+                    "Social Media Marketing",
+                    "Email Marketing",
+                    "CRM Tools",
+                    "Data Analysis"
+                ],
+                "soft": [
+                    "Creativity",
+                    "Communication",
+                    "Analytical Thinking",
+                    "Adaptability"
+                ]
+            },
+            "skill_weights": {
+                "SEO": 10,
+                "SEM": 9,
+                "Google Analytics": 10,
+                "Content Strategy": 9,
+                "Social Media Marketing": 8,
+                "Email Marketing": 7,
+                "CRM Tools": 8,
+                "Data Analysis": 9
+            },
+            "job_roles": [
+                "Digital Marketing Manager",
+                "SEO Specialist",
+                "Content Marketing Manager",
+                "Growth Marketer"
+            ],
+            "companies": [
+                "HubSpot",
+                "Google",
+                "Meta",
+                "Salesforce",
+                "Adobe",
+                "Nike",
+                "Coca-Cola",
+                "Unilever"
+            ],
+            "salary_range": "$60,000 - $120,000",
+            "growth_potential": "High",
+            "learning_resources": [
+                {
+                    "type": "certification",
+                    "name": "Google Digital Garage: Fundamentals of Digital Marketing",
+                    "platform": "Google",
+                    "duration": "1 week"
+                },
+                {
+                    "type": "course",
+                    "name": "Digital Marketing Specialization",
+                    "platform": "Coursera (University of Illinois)",
+                    "duration": "4 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Run a Live Ad Campaign (Small Budget)",
+                    "duration": "2 weeks"
+                }
+            ]
+        },
+        "Database Administrator": {
+            "description": "Ensure the performance, integrity, and security of databases",
+            "required_skills": {
+                "technical": [
+                    "SQL",
+                    "Oracle",
+                    "PostgreSQL",
+                    "MySQL",
+                    "Performance Tuning",
+                    "Backup & Recovery",
+                    "Data Modeling",
+                    "Shell Scripting"
+                ],
+                "soft": [
+                    "Problem Solving",
+                    "Attention to Detail",
+                    "Patience",
+                    "Communication"
+                ]
+            },
+            "skill_weights": {
+                "SQL": 10,
+                "Oracle": 9,
+                "PostgreSQL": 9,
+                "MySQL": 9,
+                "Performance Tuning": 10,
+                "Backup & Recovery": 10,
+                "Data Modeling": 8,
+                "Shell Scripting": 7
+            },
+            "job_roles": [
+                "Database Administrator",
+                "Database Engineer",
+                "Data Architect",
+                "SQL Developer"
+            ],
+            "companies": [
+                "Oracle",
+                "IBM",
+                "Microsoft",
+                "JPMorgan Chase",
+                "Bank of America",
+                "UnitedHealth Group",
+                "AT&T",
+                "Verizon"
+            ],
+            "salary_range": "$80,000 - $140,000",
+            "growth_potential": "Medium",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "The Complete SQL Bootcamp",
+                    "platform": "Udemy",
+                    "duration": "1 month"
+                },
+                {
+                    "type": "certification",
+                    "name": "Oracle Database Administration 2019 Certified Professional",
+                    "platform": "Oracle",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Design a Relational Database Schema",
+                    "duration": "2 weeks"
+                }
+            ]
+        },
+        "Network Engineer": {
+            "description": "Design, implement, and manage computer networks",
+            "required_skills": {
+                "technical": [
+                    "Cisco IOS",
+                    "Routing Protocols (OSPF, BGP)",
+                    "Switching",
+                    "Firewalls",
+                    "TCP/IP",
+                    "VPN",
+                    "Wireshark",
+                    "Network Security"
+                ],
+                "soft": [
+                    "Problem Solving",
+                    "Analytical Thinking",
+                    "Teamwork",
+                    "Communication"
+                ]
+            },
+            "skill_weights": {
+                "Cisco IOS": 10,
+                "Routing Protocols (OSPF, BGP)": 10,
+                "Switching": 9,
+                "Firewalls": 9,
+                "TCP/IP": 10,
+                "VPN": 8,
+                "Wireshark": 8,
+                "Network Security": 9
+            },
+            "job_roles": [
+                "Network Engineer",
+                "Network Administrator",
+                "Network Architect",
+                "NOC Engineer"
+            ],
+            "companies": [
+                "Cisco",
+                "Juniper Networks",
+                "Verizon",
+                "AT&T",
+                "T-Mobile",
+                "Comcast",
+                "Google Fiber",
+                "Arista Networks"
+            ],
+            "salary_range": "$75,000 - $130,000",
+            "growth_potential": "Medium",
+            "learning_resources": [
+                {
+                    "type": "certification",
+                    "name": "Cisco Certified Network Associate (CCNA)",
+                    "platform": "Cisco",
+                    "duration": "3 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "Cisco Certified Network Professional (CCNP)",
+                    "platform": "Cisco",
+                    "duration": "4-6 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Configure a Small Office Network in Packet Tracer",
+                    "duration": "1 week"
+                }
+            ]
+        },
+        "QA Automation Engineer": {
+            "description": "Design and execute automated tests to ensure software quality",
+            "required_skills": {
+                "technical": [
+                    "Selenium",
+                    "Python",
+                    "Java",
+                    "Jenkins",
+                    "CI/CD",
+                    "API Testing",
+                    "Git",
+                    "Jira"
+                ],
+                "soft": [
+                    "Attention to Detail",
+                    "Problem Solving",
+                    "Communication",
+                    "Collaboration"
+                ]
+            },
+            "skill_weights": {
+                "Selenium": 10,
+                "Python": 8,
+                "Java": 8,
+                "Jenkins": 8,
+                "CI/CD": 9,
+                "API Testing": 9,
+                "Git": 7,
+                "Jira": 7
+            },
+            "job_roles": [
+                "QA Engineer",
+                "Test Automation Engineer",
+                "SDET (Software Development Engineer in Test)",
+                "Quality Analyst"
+            ],
+            "companies": [
+                "Infosys",
+                "TCS",
+                "Cognizant",
+                "Wipro",
+                "Accenture",
+                "Capgemini",
+                "Microsoft",
+                "Amazon"
+            ],
+            "salary_range": "$70,000 - $130,000",
+            "growth_potential": "High",
+            "learning_resources": [
+                {
+                    "type": "course",
+                    "name": "Selenium WebDriver with Java",
+                    "platform": "Udemy",
+                    "duration": "2 months"
+                },
+                {
+                    "type": "certification",
+                    "name": "ISTQB Certified Tester",
+                    "platform": "ISTQB",
+                    "duration": "1.5 months"
+                },
+                {
+                    "type": "project",
+                    "name": "Build an Automated Test Suite for a Website",
+                    "duration": "3 weeks"
+                }
+            ]
+        }
+    },
+    "skill_categories": {
+        "programming_languages": [
+            "Python",
+            "JavaScript",
+            "Java",
+            "C++",
+            "TypeScript",
+            "Go",
+            "Rust",
+            "PHP"
+        ],
+        "frontend": [
+            "React",
+            "Vue.js",
+            "Angular",
+            "HTML",
+            "CSS",
+            "Responsive Design",
+            "Webpack"
+        ],
+        "backend": [
+            "Node.js",
+            "Django",
+            "Flask",
+            "Express.js",
+            "REST APIs",
+            "GraphQL"
+        ],
+        "databases": [
+            "SQL",
+            "MongoDB",
+            "PostgreSQL",
+            "MySQL",
+            "Redis"
+        ],
+        "cloud": [
+            "AWS",
+            "Azure",
+            "Google Cloud",
+            "Docker",
+            "Kubernetes"
+        ],
+        "tools": [
+            "Git",
+            "VS Code",
+            "Figma",
+            "Adobe XD",
+            "Jira"
+        ],
+        "soft_skills": [
+            "Problem Solving",
+            "Communication",
+            "Teamwork",
+            "Leadership",
+            "Time Management",
+            "Creativity",
+            "Analytical Thinking"
+        ]
+    }
+}

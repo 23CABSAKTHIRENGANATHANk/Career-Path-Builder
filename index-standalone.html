@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Intelligence - Your Personalized Career Mentor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0e27;
+            color: #ffffff;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.15) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #b8c1ec;
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .results {
+            display: none;
+        }
+
+        .results.active {
+            display: block;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .score-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #7c88b1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-badge {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .error {
+            background: rgba(245, 87, 108, 0.1);
+            border: 1px solid rgba(245, 87, 108, 0.3);
+            color: #f5576c;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .error.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>AI Career Intelligence</h1>
+        <p class="subtitle">Your Personalized Career Mentor</p>
+
+        <div id="error" class="error"></div>
+
+        <!-- Form Section -->
+        <div id="formSection" class="card">
+            <h2 style="margin-bottom: 2rem;">Tell Us About Yourself</h2>
+
+            <form id="careerForm">
+                <div class="form-group">
+                    <label>Technical Skills (comma-separated)</label>
+                    <input type="text" id="technicalSkills" placeholder="e.g., Python, JavaScript, React, SQL" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Soft Skills (comma-separated)</label>
+                    <input type="text" id="softSkills" placeholder="e.g., Communication, Problem Solving, Teamwork">
+                </div>
+
+                <div class="form-group">
+                    <label>Education / Degree</label>
+                    <input type="text" id="degree" placeholder="e.g., Bachelor of Science in Computer Science">
+                </div>
+
+                <div class="form-group">
+                    <label>Career Interests</label>
+                    <textarea id="interests" placeholder="What excites you? What kind of work do you enjoy?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Experience Level</label>
+                    <select id="experienceLevel">
+                        <option value="beginner">Beginner (0-1 years)</option>
+                        <option value="intermediate">Intermediate (1-3 years)</option>
+                        <option value="advanced">Advanced (3+ years)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Analyze My Career Path 🚀</button>
+            </form>
+        </div>
+
+        <!-- Loading Section -->
+        <div id="loadingSection" class="loading">
+            <div class="spinner"></div>
+            <p>Analyzing your profile with AI...</p>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="results">
+            <div class="card">
+                <h2 id="careerTitle" style="text-align: center; margin-bottom: 1rem;"></h2>
+                <p id="careerDescription" style="text-align: center; color: #b8c1ec; margin-bottom: 2rem;"></p>
+
+                <div class="score-circle">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8" />
+                        <circle id="scoreCircle" cx="50" cy="50" r="45" fill="none" stroke="url(#gradient)"
+                            stroke-width="8" stroke-linecap="round" transform="rotate(-90 50 50)"
+                            stroke-dasharray="0 283" />
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea" />
+                                <stop offset="100%" style="stop-color:#764ba2" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="score-number" id="scoreNumber">0</div>
+                </div>
+
+                <div id="reasoning"
+                    style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; margin: 2rem 0; line-height: 1.8;">
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Salary Range</div>
+                        <div class="stat-value" id="salary">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Growth Potential</div>
+                        <div class="stat-value" id="growth">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Readiness Level</div>
+                        <div class="stat-value" id="readiness">-</div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">🎯 Recommended Job Roles</h3>
+                <div id="jobRoles" class="skill-list"></div>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">🏢 Top Companies</h3>
+                <div id="companies" class="skill-list"></div>
+
+                <button class="btn" onclick="location.reload()" style="margin-top: 2rem;">Start New Analysis</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:5000/api';
+
+        document.getElementById('careerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const technicalSkills = document.getElementById('technicalSkills').value.split(',').map(s => s.trim()).filter(s => s);
+            const softSkills = document.getElementById('softSkills').value.split(',').map(s => s.trim()).filter(s => s);
+            const degree = document.getElementById('degree').value;
+            const interests = document.getElementById('interests').value.split(',').map(s => s.trim()).filter(s => s);
+            const experienceLevel = document.getElementById('experienceLevel').value;
+
+            const payload = {
+                technical_skills: technicalSkills,
+                soft_skills: softSkills,
+                degrees: degree ? [{ degree: 'Bachelor', field: degree }] : [],
+                interests: interests,
+                experience_level: experienceLevel,
+                experience: { years: experienceLevel === 'advanced' ? 3 : experienceLevel === 'intermediate' ? 2 : 0 }
+            };
+
+            // Show loading
+            document.getElementById('formSection').style.display = 'none';
+            document.getElementById('loadingSection').classList.add('active');
+            document.getElementById('error').classList.remove('active');
+
+            try {
+                const response = await fetch(`${API_URL}/analyze-profile`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to analyze profile');
+                }
+
+                const data = await response.json();
+                displayResults(data.data);
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('error').textContent = 'Error: Could not connect to backend. Make sure the backend server is running on http://localhost:5000';
+                document.getElementById('error').classList.add('active');
+                document.getElementById('formSection').style.display = 'block';
+                document.getElementById('loadingSection').classList.remove('active');
+            }
+        });
+
+        function displayResults(data) {
+            const career = data.career_recommendation;
+            const skillAnalysis = data.skill_analysis;
+
+            // Update career info
+            document.getElementById('careerTitle').textContent = career.career;
+            document.getElementById('careerDescription').textContent = career.description;
+            document.getElementById('reasoning').textContent = career.reasoning;
+            document.getElementById('salary').textContent = career.salary_range;
+            document.getElementById('growth').textContent = career.growth_potential;
+            document.getElementById('readiness').textContent = skillAnalysis.industry_comparison.current_level;
+
+            // Animate score
+            const score = Math.round(career.confidence_score);
+            const circumference = 283;
+            const offset = circumference - (score / 100) * circumference;
+            document.getElementById('scoreCircle').style.strokeDasharray = `${circumference} ${circumference}`;
+            setTimeout(() => {
+                document.getElementById('scoreCircle').style.strokeDasharray = `${circumference - offset} ${circumference}`;
+            }, 100);
+
+            let currentScore = 0;
+            const interval = setInterval(() => {
+                if (currentScore >= score) {
+                    clearInterval(interval);
+                } else {
+                    currentScore++;
+                    document.getElementById('scoreNumber').textContent = currentScore;
+                }
+            }, 20);
+
+            // Job roles
+            const jobRolesDiv = document.getElementById('jobRoles');
+            jobRolesDiv.innerHTML = '';
+            career.job_roles.forEach(role => {
+                const badge = document.createElement('div');
+                badge.className = 'skill-badge';
+                badge.textContent = role;
+                jobRolesDiv.appendChild(badge);
+            });
+
+            // Companies
+            const companiesDiv = document.getElementById('companies');
+            companiesDiv.innerHTML = '';
+            career.companies.slice(0, 8).forEach(company => {
+                const badge = document.createElement('div');
+                badge.className = 'skill-badge';
+                badge.textContent = company;
+                companiesDiv.appendChild(badge);
+            });
+
+            // Show results
+            document.getElementById('loadingSection').classList.remove('active');
+            document.getElementById('resultsSection').classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
