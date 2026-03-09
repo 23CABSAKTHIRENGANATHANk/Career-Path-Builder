@@ -65,9 +65,6 @@ function SkillGapChart({ data }) {
                 angleLines: {
                     color: 'rgba(255, 255, 255, 0.1)'
                 },
-                grid: {
-                    color: 'rgba(255, 255, 255, 0.1)'
-                },
                 pointLabels: {
                     color: '#b8c1ec',
                     font: {
