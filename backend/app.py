@@ -18,7 +18,9 @@ from roadmap_generator import RoadmapGenerator
 from mentor_engine import MentorEngine
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})  # Allow all origins including file://
+# Allow CORS from environment variable or default to all origins
+CORS_ORIGIN = os.getenv('CORS_ORIGIN', '*')
+CORS(app, resources={r"/api/*": {"origins": CORS_ORIGIN}})
 
 # Initialize AI modules
 resume_analyzer = ResumeAnalyzer()
@@ -442,8 +444,13 @@ def get_skills():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
+    # Use PORT from environment variable (common in deployment platforms)
+    port = int(os.environ.get("PORT", 5000))
+    # Disable debug mode in production for security
+    debug_mode = os.environ.get("FLASK_ENV") == "development"
+    
     print("=" * 60)
-    print("🚀 AI Career Intelligence System Backend Starting...")
+    print(f"🚀 AI Career Intelligence System Backend Starting on port {port}...")
     print("=" * 60)
     print("📊 Modules loaded:")
     print("   ✓ Resume Analyzer")
@@ -451,7 +458,7 @@ if __name__ == '__main__':
     print("   ✓ Skill Analyzer")
     print("   ✓ Roadmap Generator")
     print("=" * 60)
-    print("🌐 Server running on http://localhost:5000")
+    print(f"🌐 Server running on http://0.0.0.0:{port}")
     print("📝 API Documentation:")
     print("   • GET  /api/health          - Health check")
     print("   • POST /api/upload-resume   - Upload resume")
@@ -461,4 +468,4 @@ if __name__ == '__main__':
     print("=" * 60)
     print("💡 Tip: Keep this terminal open while using the application")
     print("=" * 60)
-    app.run(debug=True, port=5000)
+    app.run(debug=debug_mode, host='0.0.0.0', port=port)
