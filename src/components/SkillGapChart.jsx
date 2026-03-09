@@ -27,26 +27,32 @@ function SkillGapChart({ data }) {
         labels: allSkills,
         datasets: [
             {
-                label: 'Your Skills',
+                label: 'Your Current Skills',
                 data: userScores,
-                backgroundColor: 'rgba(102, 126, 234, 0.2)',
-                borderColor: 'rgba(102, 126, 234, 1)',
-                borderWidth: 2,
-                pointBackgroundColor: 'rgba(102, 126, 234, 1)',
+                backgroundColor: 'rgba(56, 189, 248, 0.2)', // Sky Blue
+                borderColor: 'rgba(56, 189, 248, 1)',
+                borderWidth: 3,
+                pointBackgroundColor: 'rgba(56, 189, 248, 1)',
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(102, 126, 234, 1)',
+                pointHoverBorderColor: 'rgba(56, 189, 248, 1)',
+                pointRadius: 4,
+                pointHoverRadius: 6,
+                fill: true,
             },
             {
-                label: 'Industry Standard',
+                label: 'Industry Elite Benchmark',
                 data: requiredScores,
-                backgroundColor: 'rgba(245, 87, 108, 0.2)',
-                borderColor: 'rgba(245, 87, 108, 1)',
+                backgroundColor: 'rgba(139, 92, 246, 0.1)', // Violet
+                borderColor: 'rgba(139, 92, 246, 0.6)',
                 borderWidth: 2,
-                pointBackgroundColor: 'rgba(245, 87, 108, 1)',
-                pointBorderColor: '#fff',
+                borderDash: [5, 5],
+                pointBackgroundColor: 'rgba(139, 92, 246, 0.4)',
+                pointBorderColor: 'transparent',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(245, 87, 108, 1)',
+                pointHoverBorderColor: 'rgba(139, 92, 246, 1)',
+                pointRadius: 0, // Hide points for benchmark unless hovered
+                pointHoverRadius: 5,
             },
         ],
     };
@@ -70,20 +76,41 @@ function SkillGapChart({ data }) {
                     }
                 },
                 ticks: {
-                    display: false
+                    display: false,
+                    stepSize: 2
                 },
                 suggestedMin: 0,
-                suggestedMax: 10
+                suggestedMax: 10,
+                grid: {
+                    color: 'rgba(255, 255, 255, 0.05)',
+                }
             }
         },
         plugins: {
+            tooltip: {
+                backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                titleFont: { size: 14, weight: 'bold' },
+                bodyFont: { size: 13 },
+                padding: 12,
+                cornerRadius: 8,
+                displayColors: true,
+            },
             legend: {
+                position: 'bottom',
                 labels: {
-                    color: '#b8c1ec',
+                    color: '#94A3B8',
+                    usePointStyle: true,
+                    padding: 20,
                     font: {
-                        size: 14
+                        size: 13,
+                        weight: '600'
                     }
                 }
+            }
+        },
+        elements: {
+            line: {
+                tension: 0.3 // Add subtle curves
             }
         }
     };

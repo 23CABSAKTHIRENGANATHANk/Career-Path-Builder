@@ -3,5 +3,7 @@ flask-cors
 PyPDF2
 python-docx
 numpy
-
+nltk
+pdfminer.six
+pymupdf
 gunicorn

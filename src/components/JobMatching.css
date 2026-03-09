@@ -1,0 +1,227 @@
+.job-matching-container {
+    padding: 20px 0;
+}
+
+.jobs-header {
+    margin-bottom: 30px;
+}
+
+.jobs-header h3 {
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.job-card {
+    position: relative;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.job-match-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.job-main-info h4 {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.job-company {
+    color: #94A3B8;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.job-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.job-detail-item {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.job-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.posted-date {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.apply-btn {
+    padding: 8px 16px;
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.apply-btn:hover:not(:disabled) {
+    filter: brightness(1.2);
+    transform: translateX(3px);
+}
+
+.apply-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.apply-btn.applying {
+    background: var(--text-muted);
+    position: relative;
+    padding-left: 30px;
+}
+
+.apply-btn.applying::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    width: 14px;
+    height: 14px;
+    border: 2px solid white;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+}
+
+.apply-btn.applied {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.apply-btn.applied:hover {
+    transform: none;
+    filter: none;
+}
+
+.jobs-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+    color: #94A3B8;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: var(--primary-color);
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.jobs-disclaimer {
+    margin-top: 40px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    color: #64748b;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .jobs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Success Modal Styles */
+.success-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
+    backdrop-filter: blur(10px);
+}
+
+.success-modal {
+    width: 450px;
+    max-width: 90vw;
+    padding: 40px;
+    text-align: center;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(16, 185, 129, 0.25);
+    animation: scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-modal .success-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.success-modal h3 {
+    font-size: 2rem;
+    color: #10B981;
+    margin-bottom: 12px;
+}
+
+.success-modal p {
+    color: #CBD5E1;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}

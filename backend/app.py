@@ -8,12 +8,14 @@ import os
 from pathlib import Path
 import json
 import time
+import random
 from datetime import datetime
 
 from resume_analyzer import ResumeAnalyzer
 from career_engine import CareerEngine
 from skill_analyzer import SkillAnalyzer
 from roadmap_generator import RoadmapGenerator
+from mentor_engine import MentorEngine
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})  # Allow all origins including file://
@@ -23,6 +25,7 @@ resume_analyzer = ResumeAnalyzer()
 career_engine = CareerEngine()
 skill_analyzer = SkillAnalyzer()
 roadmap_generator = RoadmapGenerator()
+mentor_engine = MentorEngine()
 
 # Configure upload folder
 UPLOAD_FOLDER = Path(__file__).parent / 'uploads'
@@ -65,7 +68,11 @@ def root():
             'upload_resume': '/api/upload-resume',
             'analyze_profile': '/api/analyze-profile',
             'career_paths': '/api/career-paths',
-            'skills': '/api/skills'
+            'skills': '/api/skills',
+            'chat': '/api/chat',
+            'mentor_advice': '/api/mentor-advice',
+            'jobs': '/api/jobs',
+            'interview_prep': '/api/interview-prep'
         }
     })
 
@@ -95,20 +102,28 @@ def upload_resume():
         filepath = app.config['UPLOAD_FOLDER'] / filename
         file.save(filepath)
         
-        # Analyze resume
-        resume_data = resume_analyzer.analyze(file_path=str(filepath))
-        
-        # Clean up file after analysis
-        os.remove(filepath)
-        
-        server_stats['resumes_analyzed'] += 1
-        
-        return jsonify({
-            'success': True,
-            'data': resume_data,
-            'message': 'Resume analyzed successfully!'
-        })
+        try:
+            # Analyze resume
+            resume_data = resume_analyzer.analyze(file_path=str(filepath))
+            
+            server_stats['resumes_analyzed'] += 1
+            
+            return jsonify({
+                'success': True,
+                'data': resume_data,
+                'message': 'Resume analyzed successfully!'
+            })
+        finally:
+            # Always clean up file after analysis attempt
+            if filepath.exists():
+                try:
+                    os.remove(filepath)
+                except Exception as e:
+                    print(f"⚠️ Could not remove temporary file {filepath}: {e}")
     
+    except ValueError as ve:
+        # Expected errors like unsupported format
+        return jsonify({'error': str(ve)}), 400
     except Exception as e:
         import traceback
         import logging
@@ -155,12 +170,12 @@ def analyze_profile():
             'certifications': data.get('certifications', []),
             'learning_behavior': data.get('learning_behavior', {}),
             'city': data.get('city', 'Bangalore'), # Default to Bangalore
-            'skill_ratings': data.get('skill_ratings', {})
+            'skill_ratings': data.get('skill_ratings') or {}
         }
         
         # If resume data is provided, merge it
-        if 'resume_data' in data:
-            resume_data = data['resume_data']
+        resume_data = data.get('resume_data')
+        if resume_data:
             # Merge skills
             user_profile['skills']['technical'].extend(
                 resume_data.get('skills', {}).get('technical', [])
@@ -179,8 +194,17 @@ def analyze_profile():
                 user_profile['experience'] = resume_data['experience']
             if resume_data.get('certifications'):
                 user_profile['certifications'] = resume_data['certifications']
+            if resume_data.get('skill_ratings'):
+                user_profile['skill_ratings'].update(resume_data['skill_ratings'])
             if resume_data.get('learning_behavior'):
                 user_profile['learning_behavior'] = resume_data['learning_behavior']
+            
+            # Merge identity and location
+            if resume_data.get('contact', {}).get('location') and resume_data['contact']['location'] != "Unknown":
+                user_profile['city'] = resume_data['contact']['location']
+            
+            # Add social links to profile for engine awareness
+            user_profile['social_links'] = resume_data.get('contact', {}).get('social', {})
         
         print(f"📊 Analyzing profile for user with {len(user_profile['skills']['technical'])} technical skills...")
         
@@ -211,6 +235,14 @@ def analyze_profile():
         
         # Compile complete response
         response = {
+            'user_profile': {
+                'skills': user_profile['skills'],
+                'education': user_profile['education'],
+                'experience': user_profile['experience'],
+                'certifications': user_profile.get('certifications', []),
+                'city': user_profile.get('city', ''),
+                'social_links': user_profile.get('social_links', {})
+            },
             'career_recommendation': {
                 'career': career_prediction['recommended_career'],
                 'description': career_prediction['description'],
@@ -266,6 +298,129 @@ def get_career_paths():
             'careers': careers
         })
     
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/chat', methods=['POST'])
+def chat_with_mentor():
+    """Handle chat messages with the AI Mentor"""
+    try:
+        server_stats['requests_processed'] += 1
+        data = request.json
+        message = data.get('message', '')
+        context = data.get('context', {})
+        
+        response = mentor_engine.get_response(message, context)
+        
+        return jsonify({
+            'success': True,
+            'response': response,
+            'timestamp': datetime.now().isoformat()
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/mentor-advice', methods=['POST'])
+def get_mentor_advice():
+    """Generate proactive AI mentor advice based on profile results"""
+    try:
+        data = request.json
+        advice = mentor_engine.generate_mentor_advice(data)
+        
+        return jsonify({
+            'success': True,
+            'advice': advice
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/jobs', methods=['POST'])
+def get_jobs():
+    """Handle job matching for the user's career path"""
+    try:
+        server_stats['requests_processed'] += 1
+        data = request.json
+        career = data.get('career', 'Software Engineer')
+        city = data.get('city', 'Bangalore')
+        
+        # Simulated high-quality job data
+        titles = [f"Senior {career}", f"Associate {career}", f"{career} Specialist", f"Lead {career}"]
+        companies = ["Google", "Microsoft", "Amazon", "TCS", "Infosys", "Zomato", "Swiggy", "PhonePe", "Razorpay"]
+        types = ["Full-time", "Remote", "Hybrid", "Contract"]
+        
+        jobs = []
+        for i in range(6):
+            title = random.choice(titles)
+            company = random.choice(companies)
+            job_type = random.choice(types)
+            salary = f"₹{random.randint(15, 60)} LPA" if i % 2 == 0 else "Competitive"
+            
+            jobs.append({
+                'id': f"job-{i}",
+                'title': title,
+                'company': company,
+                'location': f"{city}, India",
+                'type': job_type,
+                'salary': salary,
+                'posted': f"{random.randint(1, 5)} days ago",
+                'match_score': random.randint(85, 99)
+            })
+            
+        return jsonify({
+            'success': True,
+            'jobs': jobs
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/interview-prep', methods=['POST'])
+def get_interview_prep():
+    """Generate role-specific interview questions and tips"""
+    try:
+        data = request.get_json()
+        career = data.get('career', 'Software Engineer')
+        
+        # Role-specific question database
+        question_bank = {
+            "Software Engineer": [
+                {"q": "How do you handle technical debt while meeting tight deadlines?", "type": "Behavioral"},
+                {"q": "Explain the difference between a process and a thread.", "type": "Technical"},
+                {"q": "Describe a difficult bug you fixed recently.", "type": "Experience"},
+                {"q": "What is your favorite design pattern and why?", "type": "Technical"}
+            ],
+            "Data Scientist": [
+                {"q": "How do you handle missing or noisy data in a dataset?", "type": "Technical"},
+                {"q": "Explain the bias-variance tradeoff.", "type": "Technical"},
+                {"q": "How would you explain a complex model to a non-technical stakeholder?", "type": "Behavioral"},
+                {"q": "What is the difference between L1 and L2 regularization?", "type": "Technical"}
+            ],
+            "Product Manager": [
+                {"q": "How do you prioritize features for a new product?", "type": "Strategic"},
+                {"q": "Tell me about a time you had to say no to a stakeholder.", "type": "Behavioral"},
+                {"q": "How do you define success for a feature?", "type": "Process"},
+                {"q": "Describe a product you love and how you would improve it.", "type": "Creative"}
+            ]
+        }
+        
+        # Get questions for the specific career or use default
+        questions = question_bank.get(career, [
+            {"q": f"Tell me about your experience as a {career}.", "type": "Behavioral"},
+            {"q": f"What are the most important skills for a {career}?", "type": "Technical"},
+            {"q": "How do you stay updated with industry trends?", "type": "Behavioral"},
+            {"q": "Describe a successful project you led.", "type": "Experience"}
+        ])
+        
+        return jsonify({
+            'success': True,
+            'career': career,
+            'questions': questions,
+            'tips': [
+                "Research the company's culture and values.",
+                "Use the STAR method for behavioral questions.",
+                "Prepare 2-3 specific project examples in detail.",
+                "Don't be afraid to ask clarifying questions."
+            ]
+        })
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

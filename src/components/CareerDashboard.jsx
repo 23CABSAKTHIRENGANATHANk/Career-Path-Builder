@@ -4,11 +4,14 @@ import SkillGapChart from './SkillGapChart';
 import LearningRoadmap from './LearningRoadmap';
 import AlternativePaths from './AlternativePaths';
 import SalaryComparisonChart from './SalaryComparisonChart';
+import InterviewPrep from './InterviewPrep';
+import PortfolioBoost from './PortfolioBoost';
 import './CareerDashboard.css';
 import './EnhancedUI.css';
 import './VibrantColors.css';
 import './Enhanced3D.css';
 import './BackButton.css';
+import logoIcon from '../assets/logo.png';
 
 function CareerDashboard({ data, onReset }) {
     const navigate = useNavigate();
@@ -29,7 +32,7 @@ function CareerDashboard({ data, onReset }) {
         );
     }
 
-    const { career_recommendation, skill_analysis, learning_roadmap, alternative_careers } = data;
+    const { user_profile, career_recommendation, skill_analysis, learning_roadmap, alternative_careers } = data;
 
     // Convert USD salary to INR (1 USD = 83 INR approx)
     const convertToINR = (salaryRange) => {
@@ -103,30 +106,26 @@ function CareerDashboard({ data, onReset }) {
             <div className="container">
                 {/* Header */}
                 <div className="dashboard-header fade-in">
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginBottom: '20px' }}>
+                    <div className="dashboard-top-nav">
                         <button
                             onClick={handleBackToHome}
                             className="back-button"
                             type="button"
-                            style={{ cursor: 'pointer', zIndex: 1000, pointerEvents: 'auto' }}
                         >
                             🏠 ← Back to Home
                         </button>
                         <button
                             onClick={handleViewReport}
-                            className="back-button" // Reuse style for consistency
-                            style={{
-                                cursor: 'pointer',
-                                zIndex: 1000,
-                                pointerEvents: 'auto',
-                                background: 'linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%)',
-                                border: 'none'
-                            }}
+                            className="back-button report-btn"
+                            type="button"
                         >
                             📄 View & Download Report
                         </button>
                     </div>
-                    <h1>Your Career Intelligence Report</h1>
+                    <div className="header-branding">
+                        <img src={logoIcon} alt="Career Path Builder Logo" className="dashboard-logo" />
+                        <h1>Career Path Builder Dashboard</h1>
+                    </div>
                     <p>AI-Powered Personalized Career Guidance</p>
                 </div>
 
@@ -218,12 +217,60 @@ function CareerDashboard({ data, onReset }) {
                     >
                         Alternative Paths
                     </button>
+                    <button
+                        className={`tab-button ${activeTab === 'interview' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('interview')}
+                    >
+                        Interview Prep
+                    </button>
+                    <button
+                        className={`tab-button ${activeTab === 'portfolio' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('portfolio')}
+                    >
+                        Portfolio Builder
+                    </button>
                 </div>
 
                 {/* Tab Content */}
                 <div className="tab-content">
                     {activeTab === 'overview' && (
                         <div className="overview-tab fade-in">
+                            {/* User Profile Summary */}
+                            {user_profile && (
+                                <div className="glass-card profile-summary-card" style={{ marginBottom: '20px', background: 'rgba(15, 23, 42, 0.6)' }}>
+                                    <h3>👤 Your Professional Profile</h3>
+                                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px', marginTop: '15px' }}>
+                                        {user_profile.education && user_profile.education.degrees && user_profile.education.degrees.length > 0 && (
+                                            <div className="profile-detail-item" style={{ background: 'rgba(255,255,255,0.05)', padding: '12px', borderRadius: '8px' }}>
+                                                <div style={{ color: '#94A3B8', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 'bold' }}>🎓 Education</div>
+                                                <div style={{ fontWeight: '600', color: '#F8FAFC', marginTop: '5px', fontSize: '0.9rem' }}>
+                                                    {user_profile.education.degrees.map((d, i) => {
+                                                        const showField = d.field && d.field !== 'General' && !d.degree.toLowerCase().includes(d.field.toLowerCase()) && !d.field.toLowerCase().includes(d.degree.toLowerCase());
+                                                        return (
+                                                            <div key={i} style={{ marginBottom: '4px' }}>
+                                                                {d.degree} {showField ? `in ${d.field}` : ''}
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )}
+                                        {user_profile.city && (
+                                            <div className="profile-detail-item" style={{ background: 'rgba(255,255,255,0.05)', padding: '12px', borderRadius: '8px' }}>
+                                                <div style={{ color: '#94A3B8', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 'bold' }}>📍 Location</div>
+                                                <div style={{ fontWeight: '600', color: '#F8FAFC', marginTop: '5px', fontSize: '0.9rem' }}>{user_profile.city}</div>
+                                            </div>
+                                        )}
+                                        {user_profile.experience && user_profile.experience.years !== undefined && user_profile.experience.years > 0 && (
+                                            <div className="profile-detail-item" style={{ background: 'rgba(255,255,255,0.05)', padding: '12px', borderRadius: '8px' }}>
+                                                <div style={{ color: '#94A3B8', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 'bold' }}>💼 Experience</div>
+                                                <div style={{ fontWeight: '600', color: '#F8FAFC', marginTop: '5px', fontSize: '0.9rem' }}>{user_profile.experience.years}+ Years</div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
+
                             <div className="overview-grid">
                                 {/* Job Roles */}
                                 <div className="glass-card">
@@ -292,6 +339,19 @@ function CareerDashboard({ data, onReset }) {
                     {activeTab === 'alternatives' && (
                         <div className="alternatives-tab fade-in">
                             <AlternativePaths data={alternative_careers} />
+                        </div>
+                    )}
+
+
+                    {activeTab === 'interview' && (
+                        <div className="interview-tab fade-in">
+                            <InterviewPrep career={career_recommendation.career} />
+                        </div>
+                    )}
+
+                    {activeTab === 'portfolio' && (
+                        <div className="portfolio-tab fade-in">
+                            <PortfolioBoost career={career_recommendation.career} />
                         </div>
                     )}
                 </div>

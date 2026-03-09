@@ -1,8 +1,8 @@
-# AI Career Intelligence System
+# Career Path Builder
 
-🎯 **Your Personalized AI Career Mentor**
+🎯 **Your Personalized Career Path Builder**
 
-An advanced AI-powered career guidance system that provides deeply personalized career recommendations, skill gap analysis, and learning roadmaps based on your profile, skills, and interests.
+An AI-powered career intelligence system that provides personalized career guidance, skill gap analysis, and learning roadmaps based on user profiles, skills, and interests.
 
 ## 🌟 Features
 
@@ -113,6 +113,9 @@ The frontend will run on `http://localhost:5173`
 
 ```
 ragavi/
+├── docs/                      # Project documentation
+│   ├── guides/                # Core user and development guides
+│   └── reports_archive/       # Archived reports and summaries
 ├── backend/
 │   ├── app.py                 # Flask API
 │   ├── resume_analyzer.py     # Resume parsing module

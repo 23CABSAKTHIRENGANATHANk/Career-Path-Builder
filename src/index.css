@@ -1,5 +1,5 @@
 /* ============================================
-   AI Career Intelligence - Premium Design System
+   Career Path Builder - Premium Design System
    ============================================ */
 
 :root {
@@ -41,7 +41,7 @@
   --spacing-xl: 3rem;
 
   /* Container - Perfect Size for Text */
-  --container-max-width: 1400px;
+  --container-max-width: 1200px;
   --container-padding: 2rem;
 
   /* Card - Consistent Styling */
@@ -59,9 +59,29 @@
   --radius-xl: 24px;
 
   /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Mobile Overrides */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 1rem;
+    --card-padding: 1rem;
+    --card-margin: 1rem;
+    --spacing-lg: 1.25rem;
+    --spacing-xl: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 0.5rem;
+    --card-padding: 0.75rem;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.25rem;
+  }
 }
 
 /* ============================================
@@ -139,6 +159,36 @@ h1 {
   background-clip: text;
   animation: gradientShift 3s ease infinite;
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.85rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+}
+
+
 
 h2 {
   font-size: 2.5rem;
@@ -644,4 +694,52 @@ h6,
 label {
   transform: none !important;
   rotate: none !important;
+}
+
+/* ============================================
+   UNIVERSAL MOBILE RESPONSIVENESS FIXES
+   ============================================ */
+
+@media (max-width: 768px) {
+
+  /* Prevent horizontal scroll entirely */
+  body,
+  html {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  /* Ensure inputs and grids do not overflow */
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Enforce inputs to take available space and not stretch the parent */
+  input,
+  textarea,
+  select,
+  .form-input,
+  .form-container,
+  .form-card {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Stack social links beautifully on mobile */
+  .social-inputs-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Ensure no dynamic report action overlay prevents tapping */
+  .report-actions {
+    position: relative !important;
+    bottom: auto !important;
+    right: auto !important;
+    margin-top: 20px;
+    max-width: 100% !important;
+  }
 }

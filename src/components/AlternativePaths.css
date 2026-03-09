@@ -47,7 +47,7 @@
 
 .alternative-header h3 {
     flex: 1;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
     margin: 0;
 }
 
@@ -165,11 +165,11 @@
 .modal-content {
     max-width: 600px;
     width: 90%;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
     position: relative;
     animation: slideUp 0.3s ease;
-    padding: 2rem;
+    padding: var(--spacing-lg, 1.5rem);
 }
 
 .modal-close {
@@ -285,6 +285,13 @@
 
 .modal-footer .btn {
     min-width: 120px;
+}
+
+.modal-footer .btn-primary.applied {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+    border-color: #10B981 !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    cursor: default;
 }
 
 /* Animations */

@@ -2,8 +2,8 @@
 
 .dashboard-container {
     min-height: 100vh;
-    padding: var(--spacing-xl, 2rem) var(--container-padding, 1.5rem);
-    max-width: var(--container-max-width, 1100px);
+    padding: var(--spacing-lg) var(--container-padding);
+    max-width: var(--container-max-width);
     margin: 0 auto;
 }
 
@@ -11,17 +11,39 @@
     text-align: center;
     margin-bottom: var(--spacing-xl);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.3));
+    animation: float 4s ease-in-out infinite;
 }
 
 .back-button {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
-    padding: 0.75rem 1.5rem;
+    padding: 0.875rem 2rem;
     border-radius: var(--radius-md);
     cursor: pointer;
     transition: all var(--transition-normal);
     font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .back-button:hover {
@@ -30,7 +52,7 @@
 }
 
 .dashboard-header h1 {
-    font-size: 3rem;
+    font-size: clamp(1.85rem, 8vw, 3rem);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -62,7 +84,7 @@
 }
 
 .recommendation-header h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
     margin-bottom: var(--spacing-xs);
 }
 
@@ -137,6 +159,17 @@
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.roadmap-header h2 {
+    margin-bottom: var(--spacing-sm);
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+}
+
+@media (max-width: 768px) {
+    .roadmap-header {
+        padding: 1rem 0.5rem;
+    }
 }
 
 .score-details h3 {
@@ -217,8 +250,26 @@
 }
 
 .tab-button.active {
-    color: var(--primary-color);
-    border-bottom-color: var(--primary-color);
+    color: #fff;
+    background: var(--primary-gradient);
+    border-radius: 8px;
+    border-bottom: none;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+    .tab-navigation {
+        gap: 0.5rem;
+        padding: 5px;
+        border-bottom: none;
+    }
+
+    .tab-button {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        border-radius: 6px;
+    }
 }
 
 /* Overview Tab */
@@ -281,6 +332,13 @@
 /* Quick Wins */
 .quick-wins-card {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .quick-wins-list {

@@ -4,6 +4,7 @@ import axios from 'axios';
 import './ProfileForm.css';
 import './VibrantColors.css';
 import './Enhanced3D.css';
+import logoIcon from '../assets/logo.png';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api';
 
@@ -40,6 +41,11 @@ function ProfileForm({ onAnalysisComplete, setLoading }) {
 
         // Certifications
         certifications: '',
+
+        // Social Links
+        linkedin: '',
+        github: '',
+        portfolio: '',
 
         // Experience level
         experience_level: 'beginner',
@@ -133,8 +139,14 @@ function ProfileForm({ onAnalysisComplete, setLoading }) {
                     technical_skills: [...new Set([...(prev.technical_skills ? prev.technical_skills.split(',').map(s => s.trim()).filter(s => s) : []), ...data.skills.technical])].join(', '),
                     soft_skills: [...new Set([...(prev.soft_skills ? prev.soft_skills.split(',').map(s => s.trim()).filter(s => s) : []), ...data.skills.soft])].join(', '),
                     certifications: (data.certifications || []).join(', '),
-                    degrees: (data.education.degrees.map(d => d.degree + ' in ' + d.field)).join(', '),
-                    experience: data.experience || prev.experience
+                    degrees: data.education?.degrees ? [...new Set(data.education.degrees.map(d => {
+                        return (d.field && d.field !== 'General') ? `${d.degree} in ${d.field}` : d.degree;
+                    }))].join(', ') : '',
+                    experience: data.experience || prev.experience,
+                    city: data.contact?.location && ['Bangalore', 'Mumbai', 'Delhi/NCR', 'Pune', 'Hyderabad', 'Chennai'].includes(data.contact.location) ? data.contact.location : prev.city,
+                    linkedin: data.contact?.social?.linkedin || prev.linkedin,
+                    github: data.contact?.social?.github || prev.github,
+                    portfolio: data.contact?.social?.portfolio || prev.portfolio
                 }));
             }
         } catch (error) {
@@ -164,10 +176,14 @@ function ProfileForm({ onAnalysisComplete, setLoading }) {
                 soft_skills: formData.soft_skills.split(',').map(item => item.trim()).filter(item => item),
                 interests: formData.interests.split(',').map(item => item.trim()).filter(item => item),
                 certifications: formData.certifications.split(',').map(item => item.trim()).filter(item => item),
+                linkedin: formData.linkedin,
+                github: formData.github,
+                portfolio: formData.portfolio,
                 experience_level: formData.experience_level,
                 experience: formData.experience,
                 resume_data: resumeData,
-                skill_ratings: formData.skill_ratings
+                skill_ratings: formData.skill_ratings,
+                city: formData.city
             };
 
             const response = await axios.post(`${API_URL}/analyze-profile`, payload);
@@ -203,7 +219,8 @@ function ProfileForm({ onAnalysisComplete, setLoading }) {
 
             <div className="container">
                 <div className="form-header fade-in holographic-card">
-                    <h1 className="neon-text">AI Career Intelligence</h1>
+                    <img src={logoIcon} alt="Career Path Builder Logo" className="app-logo-header" />
+                    <h1 className="neon-text">Career Path Builder</h1>
                     <p className="typing-text">Your Personalized Career Mentor</p>
                 </div>
 
@@ -249,6 +266,44 @@ function ProfileForm({ onAnalysisComplete, setLoading }) {
                                 </select>
                                 <div className="salary-preview">
                                     <p><strong>💡 Tip:</strong> Salaries vary by location. Bangalore typically offers 10-20% higher salaries than other cities.</p>
+                                </div>
+                            </div>
+
+                            {/* Social Links Section */}
+                            <div className="social-links-section card-glass-dark mb-4">
+                                <h3 className="neon-text-small">🌐 Professionals Connections</h3>
+                                <p className="step-description">Extracted from resume. Verify your digital presence.</p>
+                                <div className="social-inputs-grid">
+                                    <div className="form-group-minimal">
+                                        <label>LinkedIn</label>
+                                        <input
+                                            type="text"
+                                            placeholder="linkedin.com/in/username"
+                                            value={formData.linkedin}
+                                            onChange={(e) => handleInputChange('linkedin', e.target.value)}
+                                            className="input-minimal"
+                                        />
+                                    </div>
+                                    <div className="form-group-minimal">
+                                        <label>GitHub</label>
+                                        <input
+                                            type="text"
+                                            placeholder="github.com/username"
+                                            value={formData.github}
+                                            onChange={(e) => handleInputChange('github', e.target.value)}
+                                            className="input-minimal"
+                                        />
+                                    </div>
+                                    <div className="form-group-minimal">
+                                        <label>Portfolio</label>
+                                        <input
+                                            type="text"
+                                            placeholder="https://yourportfolio.com"
+                                            value={formData.portfolio}
+                                            onChange={(e) => handleInputChange('portfolio', e.target.value)}
+                                            className="input-minimal"
+                                        />
+                                    </div>
                                 </div>
                             </div>
 

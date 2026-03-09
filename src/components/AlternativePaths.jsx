@@ -11,6 +11,7 @@ function AlternativePaths({ data }) {
     const closeModal = () => {
         setSelectedCareer(null);
     };
+
     return (
         <div className="alternatives-container">
             <div className="alternatives-header">

@@ -1,0 +1,125 @@
+.portfolio-boost-container {
+    padding: 20px 0;
+}
+
+.pb-header {
+    margin-bottom: 30px;
+}
+
+.pb-header h3 {
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.pb-card {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s;
+}
+
+.pb-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+}
+
+.pb-phase-badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pb-card h4 {
+    margin: 0;
+    font-size: 1.35rem;
+    color: white;
+}
+
+.pb-description {
+    font-size: 0.9rem;
+    color: #94A3B8;
+    line-height: 1.5;
+}
+
+.pb-tasks h5 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
+.pb-tasks ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pb-tasks li {
+    font-size: 0.85rem;
+    color: #94A3B8;
+    margin-bottom: 5px;
+}
+
+.pb-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.difficulty-badge {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.difficulty-badge.beginner {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.difficulty-badge.intermediate {
+    background: rgba(245, 158, 11, 0.1);
+    color: #F59E0B;
+}
+
+.difficulty-badge.advanced {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+}
+
+.pb-view-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.pb-view-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+    .pb-grid {
+        grid-template-columns: 1fr;
+    }
+}

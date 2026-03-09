@@ -27,6 +27,9 @@ class CareerEngine:
         # Normalize user skills to lowercase for comparison
         user_skills_lower = [s.lower() for s in user_skills]
         
+        if not isinstance(skill_ratings, dict):
+            skill_ratings = {}
+            
         for skill, weight in skill_weights.items():
             if skill.lower() in user_skills_lower:
                 # Get proficiency rating (default to 5/10 if not rated)
@@ -83,8 +86,8 @@ class CareerEngine:
     
     def calculate_academic_fit(self, education_data, career_path):
         """Calculate how well academic background fits the career"""
-        if not education_data.get('degrees'):
-            return 50  # Neutral if no degree info
+        if not education_data or not education_data.get('degrees'):
+            return 50  # Neutral if no degree info or None provided
         
         # Relevant fields for each career
         relevant_fields = {
@@ -182,7 +185,8 @@ class CareerEngine:
             skill_match = self.calculate_skill_match(
                 all_user_skills,
                 required_skills,
-                skill_weights
+                skill_weights,
+                skill_ratings=user_profile.get('skill_ratings', {})
             )
             
             # Calculate interest alignment

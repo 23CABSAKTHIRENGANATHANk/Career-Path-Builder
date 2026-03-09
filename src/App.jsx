@@ -4,6 +4,7 @@ import ProfileForm from './components/ProfileForm';
 import CareerDashboard from './components/CareerDashboard';
 import CareerReport from './components/CareerReport';
 import ErrorBoundary from './components/ErrorBoundary';
+import ChatMentor from './components/ChatMentor';
 
 function App() {
     // Initialize state from localStorage if available
@@ -68,6 +69,7 @@ function App() {
                             element={<CareerReport data={analysisData} />}
                         />
                     </Routes>
+                    <ChatMentor userData={analysisData} />
                 </div>
             </Router>
         </ErrorBoundary>
